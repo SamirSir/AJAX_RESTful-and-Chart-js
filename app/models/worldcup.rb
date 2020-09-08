@@ -1,0 +1,2 @@
+class Worldcup < ApplicationRecord
+end

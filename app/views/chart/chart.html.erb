@@ -1,0 +1,100 @@
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="container-fluid">
+            <p>Hash std_hash: <%= @std_hash %></p>
+            <p>Hash abc: <%= @abc %></p>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="container-fluid">
+            <h2>Geo Chart using world cup statistics</h2>
+            <%= geo_chart @worldcup_geo, colors: ['green'], title: 'value signifies the WorldCup title won' %> 
+            <p>World Cup Winner Country Name: 
+            <% @worldcup.each do |w| %>
+                <% if w.won > 0 %>
+                <b><%= w.country %> <%= w.won %>, </b>
+                <% end%>
+            <% end %>
+            </p>
+            <p> <%= @worldcup.count %> different country played the  final of Cup</p>
+            <p> <%= total @wcup_title %> titles are won</p>
+            <p>Most title won:<b> <%= @most_title_won %> times by <%= @most_wc_winner %></b></p>
+        </div>
+    </div>
+    
+
+    <div class="col-md-6">
+        <div class="container-fluid">
+            <h2>Visits By Country Per Day</h2>
+            <%= geo_chart @visits.group(:country).count %>
+            <%= line_chart Visit.pluck("country").uniq.map { |c| { name: c, data: @visits.where(country: c).group_by_day(:visited_at, format: "%B %d, %Y").count }  }, discrete: true, title: "visit record by day", xtitle: "day", ytitle: "No. of visits" %>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="container-fluid">
+            <h2>Multiple line Chart using static hash value</h2>
+            <%= line_chart @data %> 
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="container">
+            <h2>Double Chart using static hash value</h2>
+            <%= column_chart @girls_boys %> 
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="container">
+            <h2>Time line using static value</h2>
+            <%= timeline [
+            ["Washington", "1789-04-29", "1797-03-03"],
+            ["Adams", "1797-03-03", "1801-03-03"],
+            ["Jefferson", "1801-03-03", "1809-03-03"]
+            ] %>
+        </div>
+    </div>
+
+    
+
+
+
+    <div class="col-md-6">
+        <div class="container">
+            <h2>Line Chart using Hash value</h2>
+            <%= line_chart @abc, xtitle: "Date Of Registration", ytitle: "No. of Students (Classwise)",  title: 'Student Registration Datewise', colors: ['green'] %>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="container ">
+            <h2>Column Chart Using Hash</h2>
+            <p> Total Students : <%= total @students %></p>
+            <% @grades.each do |g| %>
+                <%= titleize_name g.name %>
+            <% end %><br>
+           
+            <%= name.titleize %><br>
+            <%= column_chart @std_hash, xtitle: "Class", ytitle: "No. of Students",  title: 'Student Of Each Grade' %>
+        </div>
+    </div>
+
+     <div class="col-md-6">
+        <div class="container">
+            <h2>Pie Chart using Hash value</h2>
+            <%= pie_chart @std_hash %>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="container">
+            <h2>Area Chart using static hash value</h2>
+            <%= area_chart(a:3, b:5, c:7, d:1, e:4) %>
+        </div>
+    </div>
+
+</div>
+

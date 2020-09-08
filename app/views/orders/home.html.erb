@@ -1,0 +1,115 @@
+<!-- function trim()
+
+this.selectedOptions[0].innerHTML.substr(this.selectedOptions[0].innerHTML.indexOf(' ') + 1).trim() -->
+
+
+<div class="row">
+	<%# update method 1 %>
+	<div class="col-md-6">
+		<h3>Post operation through AJAX</h3>
+		<ul id="update">
+		<% @orders.each do |order| %>
+			<li class="edit" data-id="<%= order.id%>">
+				<p><strong>Name:</strong> <span class="name noEdit"><%= order.name%></span> <input class="name edit" val="" /></p>
+				<p><strong>Drink:</strong> <span class="drink noEdit"><%= order["drink"]%></span><input class="drink edit" val= "" /></p>		
+				<button class="btn btn-primary noEdit" id="editOrder">Edit</button>
+				<button class="btn btn-success edit" id="saveOrder">Save</button>
+				<button class="btn btn-danger edit" id="cancelOrder">Cancel</button>
+			</li>
+		<% end %>
+		</ul>
+	</div>
+
+	<%# update method 2 %>
+	<div class="col-md-6">
+		<h3>Post operation through AJAX method 2</h3>
+		<ul id="putRequest">
+		<% @orders.each do |order| %>
+			<li data-id="<%= order.id%>">
+				<p><strong>Name:</strong> <span class="name noEdit"><%= order.name%></span> <input class="name edit" val="" /></p>
+				<p><strong>Drink:</strong> <span class="drink noEdit"><%= order["drink"]%></span><input class="drink edit" val= "" /></p>		
+				<button class="btn btn-primary noEdit" id="editOrder">Edit</button>
+				<button class="btn btn-success edit" id="saveOrder">Save</button>
+				<button class="btn btn-danger edit" id="cancelOrder">Cancel</button>
+			</li>
+		<% end %>
+		</ul>
+	</div>
+	
+</div>
+
+
+<%# method 2 for editing data %>
+
+<div class="row">
+	
+</div>
+
+<div class="row">
+	<div class="col-xl-3 col-lg-4 col-md-6 ">
+		<input type="text" placeholder="search here ..." id="jptsearch_text">
+		<ul id="jptList">
+			<li>abc</li>
+			<li>bce</li>
+			<li>def</li>
+			<li>adf</li>
+			<li>asdqawsc</li>
+			<li>rewaszd btrx</li>
+			<li>abcasdas</li>
+			<li>bcxzcze</li>
+			<li>asdasdef</li>
+			<li>adasdf</li>
+			<li>asdqawsc</li>
+			<li>rewaszd btrx</li>
+		</ul>	
+	</div>
+
+	<div id="search_operation" class="col-xl-3 col-lg-4 col-md-6 " >
+		<input type="text" name="" id="inputText" placeholder="Search . . .">
+		<ul id="searchList">
+			<li> <a href = "#">Apple</a></li>
+			<li> <a href = "#">Amber</a></li>
+			<li> <a href = "#">Ape</a></li>
+			<li> <a href = "#">Banan</a></li>
+			<li> <a href = "#">Banepa</a></li>
+			<li> <a href = "#">Animation</a></li>
+			<li> <a href = "#">Aunty</a></li>
+			<li> <a href = "#">Bulky</a></li>
+			<li> <a href = "#">Bucky</a></li>
+		</ul>
+	</div>
+
+	<div class="col-xl-3 col-lg-4 col-md-6 ">
+		<h2>Coffee Orders</h2>
+		<ul id="orders">
+			<!-- li will append here by AJAX Get method -->
+		</ul>
+		<h4>Add a Coffee Order</h4>
+		<p>Name: <input type="text" name="" id="name"></p>
+		<p>Drink: <input type="text" name="" id="drink" ></p>
+
+		<button id="add-order">Add</button>
+	</div>
+
+	<div class="col-xl-3 col-lg-4 col-md-6">
+
+		<div class="row">
+			<div class="col-md-12 text-center border border-light p-3 mb-5" id="voteContainer">
+				<h2>Vote Counter</h2>
+				<h1 id="vote">0</h1>
+				<button id="votingBtn" class="btn btn-success">Add Vote</button>
+				<button id="votingBtn2" class="btn btn-danger">Remove Vote</button>
+				<button id="votingBtn3" class="btn btn-primary mt-1">Clear Vote</button>
+			</div>
+		
+			<div class="col-md-12 text-center border p-3">
+				<h3>Enter event demo</h3>
+				<input type="text" name="" id="submitBtn" placeholder="Enter some text and press enter">
+				<span id="display"></span>
+			</div>
+		</div>
+	</div>	
+
+</div>
+
+

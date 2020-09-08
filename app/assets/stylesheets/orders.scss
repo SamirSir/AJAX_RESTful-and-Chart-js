@@ -1,0 +1,90 @@
+// Place all the styles related to the Orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.container{
+	margin: 0px;
+	/*padding: 0px;*/
+}
+
+div.row{
+	margin-bottom: 1em;
+}
+
+ul>li{
+	padding: 0.2em;
+}
+
+ul#update li{
+	border: none;
+	background-color:rgb(109, 183, 231);
+	margin-bottom: 0.2em;
+}
+
+
+.dark{
+	background:black;
+	color: white;
+}
+
+button#toggle{
+	background: black;
+	color: white;
+	border: none;
+	padding: 5px;
+	float: right;
+	border-radius: 5px;
+}
+button#toggle.dark{
+	border: none;
+	padding: 5px;
+	background: green;
+	color: white;
+	float: right;
+	border-radius: 5px;
+	box-shadow: 4px 4px lightgrey,  -4px -4px lightgrey,  4px -4px lightgrey,  -4px 4px lightgrey;
+}
+ 
+
+/* for search*/
+
+/*#search_operation */
+ul{
+	background-color: lightgrey;
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+/*#search_operation*/ li{
+	border: 1px solid;
+	margin-top: -1px;
+}
+
+
+// update the order list
+
+
+li.edit .edit{
+	display: none;
+}
+
+li.edit .noEdit{
+	display: initial;
+}
+
+// for method 2
+ul#putRequest li{
+	border: none;
+	background-color:rgb(226, 164, 235);
+	margin-bottom: 0.2em;
+}
+ul#putRequest li .edit{
+	display: none;
+}
+ul#putRequest li.edit .edit{
+	display: initial;
+}
+
+ul#putRequest li.edit .noEdit{
+	display: none;
+}
